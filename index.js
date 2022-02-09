@@ -53,12 +53,15 @@ app.get("/todo/:id", (req, res) =>{
 
 app.post("/todo", (req, res) => {
     const data = req.body
+    todos.push(data)
 
-    res.send({
-        data
-    })
+    res.send({data: todos})
 })
 
+
+app.use((req, res) => {
+    res.send("<h1 style='text-align:center; margin-top:100px'>404</h1>")
+})
 
 app.listen(port, ()=>{
     console.log("server runing on port", port);
