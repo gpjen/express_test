@@ -1,7 +1,9 @@
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
 const port = 5000
 
+app.use(morgan('dev'))
 app.use(express.json())
 
 let todos = [
@@ -51,11 +53,25 @@ app.get("/todo/:id", (req, res) =>{
 
 })
 
+
 app.post("/todo", (req, res) => {
     const data = req.body
     todos.push(data)
 
     res.send({data: todos})
+})
+
+app.patch('/todo/:id', (req, res) => {
+    const {id} = req.params
+
+    todos = todos.map(item => {
+        if (item.id == id) {
+            return {...req.body}
+        }else {
+            return item
+        }
+    })
+    res.send({data:todos})
 })
 
 
