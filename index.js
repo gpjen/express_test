@@ -74,6 +74,14 @@ app.patch('/todo/:id', (req, res) => {
     res.send({data:todos})
 })
 
+app.delete('/todo/:id', (req, res) => {
+    const {id} = req.params
+
+    todos = todos.filter(item => item.id != id)
+
+    res.send({data: todos})
+})
+
 
 app.use((req, res) => {
     res.send("<h1 style='text-align:center; margin-top:100px'>404</h1>")
