@@ -1,14 +1,28 @@
 const express = require('express')
-const app = express();
+const morgan = require('morgan')
+const router = require('./src/routes')
+
+const app = express()
 const port = 5000
 
+app.use(morgan('dev'))
+app.use(express.json())
 
+
+//group routes
+app.use('/api/v1/', router)
 //endpoint
-
 app.get("/", (req, res) =>{
-    res.send("okee")
+    res.send("mantap")
 })
 
+
+
+
+
+app.use((req, res) => {
+    res.send("<h1 style='text-align:center; margin-top:100px'>404</h1>")
+})
 
 app.listen(port, ()=>{
     console.log("server runing on port", port);
