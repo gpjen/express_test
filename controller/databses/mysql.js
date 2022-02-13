@@ -1,16 +1,16 @@
-const mysql = require("mysql")
+const mysql = require('mysql')
 
 const con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    passsword: "",
     database: "mysql_express"
 })
 
 con.connect(err => {
     if (err) throw err
 
-    console.log("berhasil koneksi database");
+    console.log("koneksi database berhasil");
 })
 
 module.exports = con
