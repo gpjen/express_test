@@ -1,6 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
-const router = require('./src/routes')
+const router = require('./src/routes/index')
 
 const app = express()
 const port = 5000
@@ -8,9 +8,9 @@ const port = 5000
 app.use(morgan('dev'))
 app.use(express.json())
 
+//group
+app.use('/api/v1', router)
 
-//group routes
-app.use('/api/v1/', router)
 //endpoint
 app.get("/", (req, res) =>{
     res.send("mantap")

@@ -1,18 +1,17 @@
-const express = require('express')
+const express = require("express")
 const router = express.Router()
 
 const {
-    getTodos,
-    getTodo,
-    addTodo,
-    updateTodo,
-    deleteTodo
-} = require('../controllers/todo')
+    getMhss,
+    getMhs,
+    addMhs,
+    delMhs
+} = require("./mahasiswa")
 
-router.get('/todos', getTodos)
-router.get('/todos/:id', getTodo)
-router.post('/todos', addTodo)
-router.patch('/todos/:id', updateTodo)
-router.delete('/todos/:id', deleteTodo)
+router.get('/mahasiswa', getMhss)
+router.get('/mahasiswa/:id', getMhs)
+router.post('/mahasiswa', addMhs)
+router.delete('/mahasiswa/:id', delMhs)
+
 
 module.exports = router
