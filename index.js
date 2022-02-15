@@ -1,28 +1,34 @@
+// import
 const express = require('express')
 const morgan = require('morgan')
-const router = require('./controller/routesGroup/index')
+const router = require('./controller/index')
 
+//running import
 const app = express()
-const port = 5000
+const port = 3005
 
+//midleware
 app.use(morgan('dev'))
 app.use(express.json())
 
-//group
+
+//routing-group
 app.use('/api/v1', router)
-//endpoint
-app.get("/", (req, res) =>{
-    res.send("mantap")
+
+//routing
+app.get('/', (req, res) => {
+    res.status(200).json({
+        status: "true",
+        path: req.path
+    })
 })
 
-
-
-
-
+// handle roting not fount
 app.use((req, res) => {
-    res.send("<h1 style='text-align:center; margin-top:100px'>404</h1>")
+    res.send("page not fount")
 })
 
-app.listen(port, ()=>{
-    console.log("server runing on port", port);
+// start server
+app.listen(port, () => {
+    console.log("app running port : ", port);
 })
