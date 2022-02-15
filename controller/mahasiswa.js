@@ -14,3 +14,25 @@ exports.getMhs = (req, res) => {
         })
     })
 }
+
+exports.getOneMhs = (req, res) => {
+    const {id} = req.params
+    const sql = `SELECT * FROM mahasiswa WHERE id=${id}`
+    db.query(sql, (err, result) => {
+        if (err) throw err.message
+
+        if (result.length > 0) {
+            res.status(200).json({
+                status: true,
+                message: "get selectted mahasiswa",
+                data: result
+            })
+        }else{
+            res.status(200).json({
+                status: false,
+                message: "no data mahasiswa",
+                data: []
+            })
+        }
+    })
+}
