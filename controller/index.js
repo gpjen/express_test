@@ -5,11 +5,15 @@ const router = express.Router()
 //mahasiswa
 const {
     getMhs,
-    getOneMhs
+    getOneMhs,
+    addMhs,
+    updateMhs
 } = require('./mahasiswa')
 
 router.get('/mahasiswa', getMhs)
 router.get('/mahasiswa/:id', getOneMhs)
+router.post('/mahasiswa', addMhs)
+router.put('/mahasiswa', updateMhs)
 
 
 //dosen
