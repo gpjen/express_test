@@ -1,8 +1,18 @@
 {
+  "dependencies": {
+    "express": "^4.17.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.16.1"
+  },
   "name": "learn_express",
   "version": "1.0.0",
-  "description": "learn express",
+  "description": "\"learn express\"",
   "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
@@ -11,17 +21,14 @@
     "type": "git",
     "url": "git+https://github.com/gpjen95/learn_express.git"
   },
+  "keywords": [
+    "learn",
+    "express"
+  ],
   "author": "gandi purna jen",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/gpjen95/learn_express/issues"
   },
-  "homepage": "https://github.com/gpjen95/learn_express#readme",
-  "dependencies": {
-    "express": "^4.17.2",
-    "morgan": "^1.10.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  }
+  "homepage": "https://github.com/gpjen95/learn_express#readme"
 }
