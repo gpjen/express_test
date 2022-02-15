@@ -80,6 +80,20 @@ exports.updateMhs = (req, res) => {
 }
 
 
+exports.deleteMhs = (req, res) => {
+    const {id} = req.params
+    const sql = `DELETE FROM mahasiswa WHERE id=${id}`
+    db.query(sql, (err, result) => {
+        if (err) throw err.message
+
+        res.status(200).json({
+            message: result.message,
+            data: result
+        })
+    })
+}
+
+
 
 
 
