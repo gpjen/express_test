@@ -9,7 +9,7 @@ const {
     addMhs,
     updateMhs,
     deleteMhs
-} = require('./mahasiswa')
+} = require('../models/mahasiswa')
 
 router.get('/mahasiswa', getMhs)
 router.get('/mahasiswa/:id', getOneMhs)
@@ -20,10 +20,19 @@ router.delete('/mahasiswa/:id', deleteMhs)
 
 //dosen
 const {
-    getDosen
-} = require('./dosen')
+    getDosen,
+    getOneDosen,
+    addDosen,
+    updateDosen,
+    delDosen
+    
+} = require('../models/dosen')
 
 router.get('/dosen', getDosen)
+router.get('/dosen/:id', getOneDosen)
+router.post('/dosen', addDosen)
+router.put('/dosen', updateDosen)
+router.delete('/dosen/:id', delDosen)
 
 
 module.exports = router
