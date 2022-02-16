@@ -1,15 +1,22 @@
 const express = require('express')
-const app = express();
-const port = 5000
+const morgan = require('morgan')
 
+const app = express()
+const port = 3010
 
-//endpoint
+//midleware
+app.use(express.json())
+app.use(morgan('dev'))
 
-app.get("/", (req, res) =>{
-    res.send("okee")
+//routing
+app.get('/', (req, res) => {
+    res.send("mantap konek berhasil")
 })
 
+app.use((req, res) => {
+    res.send(`error404 : ${req.path}`)
+})
 
-app.listen(port, ()=>{
-    console.log("server runing on port", port);
+app.listen(port, () => {
+    console.log("server running on port : ", port);
 })
