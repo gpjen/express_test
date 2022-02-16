@@ -54,7 +54,7 @@ exports.addMhs = (req, res) => {
             db.query(sql, (err, result) => {
                 if (err) throw err.message
                 res.status(200).json({
-                    status: false,
+                    status: true,
                     message: "add data mahasiswa",
                     data: result
                 })
